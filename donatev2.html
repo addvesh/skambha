@@ -154,7 +154,7 @@
 <div class="main">
 	<form action="#" id="payment_form">
     <input type="hidden" id="udf5" name="udf5" value="BOLT_KIT_NODE_JS" />
-    <input type="hidden" id="surl" name="surl" value="http://localhost:3000/response.html" />
+    <input type="hidden" id="surl" name="surl" value="https://skambha-ngo.herokuapp.com//response.html" />
     <input type="hidden" id="key" name="key" placeholder="Merchant Key" value="U5uk8uls" />
     <input type="hidden" id="salt" name="salt" placeholder="Merchant Salt" value="BJRZBjx1mO" />
     
@@ -322,7 +322,7 @@
     <script type="text/javascript">
         $('#payment_form').bind('keyup blur', function(){
             $.ajax({
-                  url: 'http://localhost:3000',
+                  url: 'https://skambha-ngo.herokuapp.com/',
                   type: 'post',
                   data: JSON.stringify({ 
                     key: $('#key').val(),
