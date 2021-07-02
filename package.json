@@ -1,10 +1,13 @@
 {
-  "name": "Skambha NGO",
+  "name": "Skambha-NGO",
   "version": "1.0.0",
   "description": "Skambha NGO Web APP",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
+  },
+  "engines": {
+    "node": "16.x"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
