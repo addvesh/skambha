@@ -37,6 +37,22 @@
 
 <link rel="stylesheet" href="css/responsive.css">
 <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+<style type="text/css">
+	.main {
+		/*margin-left:30px;*/
+		font-family:Verdana, Geneva, sans-serif, serif;
+	}
+	.text {
+		float:left;
+		width:180px;
+	}
+	.dv {
+		margin-bottom:5px;
+	}
+    .pb10{
+        padding-bottom: 10px;
+    }
+</style>
 </head>
 <body>
 <!--[if lt IE 8]>
@@ -128,93 +144,57 @@
     <div class="contact-form">
     <h3>Help us serve the humanity ! </h3>
      <p>Hey You ! Our people sincerely are thankful to you for the donation you are about to make.</p>
-
-     <h3>PayUMoney Payment Request Form </h3>
-<form action="myServlet"  name="payuform" method=POST >
-<input type="hidden" name="key"value="UFu3ed" />
-<input type="hidden" name="hash_string" value="" />
-<input type="hidden" name="hash" />
-<input type="hidden" name="txnid"/>
-<table>
-<tr>
-<td><b>Mandatory Parameters</b></td>
-</tr>
-<tr>
-<td>Amount: </td>
-<td><input name="amount"  /></td>
-<td>First Name: </td>
-<td><input name="firstname" id="firstname"  /></td>
-</tr>
-<tr>
-<td>Email: </td>
-<td><input name="email" id="email"   /></td>
-<td>Phone: </td>
-<td><input name="phone"  /></td>
-</tr>
-<tr>
-<td>Product Info: </td>
-<td colspan="3"><textarea name="productinfo" >  </textarea></td>
-</tr>
-<tr>
-<td>Success URI: </td>
-<td colspan="3"><input name="surl"  size="64"  /></td>
-</tr>
-<tr>
-<td>Failure URI: </td>
-<td colspan="3"><input name="furl"  size="64" /></td>
-</tr>
-<tr>
-<td colspan="3"><input type="hidden" name="service_provider" value="payu_paisa" /></td>
-</tr>
-<tr>
-<td><b>Optional Parameters</b></td>
-</tr>
-<tr>
-<td>Last Name: </td>
-<td><input name="lastname" id="lastname"  /></td>
-<td>Cancel URI: </td>
-<td><input name="curl" value="" /></td>
-</tr>
-<tr>
-<td>Address1: </td>
-<td><input name="address1" /></td>
-<td>Address2: </td>
-<td><input name="address2"  /></td>
-</tr>
-<tr>
-<td>City: </td>
-<td><input name="city"  /></td>
-<td>State: </td>
-<td><input name="state"  /></td>
-</tr>
-<tr>
-<td>Country: </td>
-<td><input name="country"  /></td>
-<td>Zipcode: </td>
-<td><input name="zipcode"  /></td>
-</tr>
-<tr>
-<td>UDF1: </td>
-<td><input name="udf1"  /></td>
-<td>UDF2: </td>
-<td><input name="udf2"  /></td>
-</tr>
-<tr>
-<td>UDF3: </td>
-<td><input name="udf3"   /></td>
-<td>UDF4: </td>
-<td><input name="udf4"  /></td>
-</tr>
-<tr>
-<td>UDF5: </td>
-<td><input name="udf5"  /></td>
-<td>PG: </td>
-<td><input name="pg"  /></td>
-</tr>
-<td colspan="4"><input type="submit" value="Submit"  /></td>
-</tr>
-</table>
+    <p>
+        <div style="display:inline;">
+            <img src="./img/payumoney.png" class="pb10"/>
+            <span style="padding-left:2px;font-size: 20px;font-weight:700;">Payment Request Form </span>
+        </div>
+    </p>
+     
+<div class="main">
+	<form action="#" id="payment_form">
+    <input type="hidden" id="udf5" name="udf5" value="BOLT_KIT_NODE_JS" />
+    <input type="hidden" id="surl" name="surl" value="https://skambha-ngo.herokuapp.com//response.html" />
+    <input type="hidden" id="key" name="key" placeholder="Merchant Key" value="U5uk8uls" />
+    <input type="hidden" id="salt" name="salt" placeholder="Merchant Salt" value="BJRZBjx1mO" />
+    
+    <div class="dv">
+        <span class="text"><label>Order Number</label></span>
+        <span><input type="text" id="txnid" name="txnid" placeholder="Order Number" value="" required/></span>    
+        </div>
+    <div class="dv">
+    <span class="text"><label>Amount:</label></span>
+    <span><input type="text" id="amount" name="amount" placeholder="Amount" value="6.00" /></span>    
+    </div>
+    
+    <div class="dv">
+    <span class="text"><label>Product Info:</label></span>
+    <span><input type="text" id="pinfo" name="pinfo" placeholder="Product Info" value="P01,P02" /></span>
+    </div>
+    
+    <div class="dv">
+    <span class="text"><label>First Name:</label></span>
+    <span><input type="text" id="fname" name="fname" placeholder="First Name" value="" /></span>
+    </div>
+    
+    <div class="dv">
+    <span class="text"><label>Email ID:</label></span>
+    <span><input type="text" id="email" name="email" placeholder="Email ID" value="" /></span>
+    </div>
+    
+    <div class="dv">
+    <span class="text"><label>Mobile/Cell Number:</label></span>
+    <span><input type="text" id="mobile" name="mobile" placeholder="Mobile/Cell Number" value="" /></span>
+    </div>
+    <span><input type="hidden" id="hash" name="hash" placeholder="Hash" value="" /></span>
+    <div id="alertinfo" class="dv"></div>
+    <!-- <input class="payu-button"type="submit" value="" onclick="launchBOLT(); return false;" /> -->
+    <!-- <button type="submit" class="payu-button" onclick="launchBOLT(); return false;">Pay with PayU</button> -->
+    <div style="padding-top:10px;">
+        <button type="submit" onclick="launchBOLT(); return false;" style="border: 0px; height: 50px; width: 313px; background: url('http://static.payu.com/en/standard/partners/buttons/payu_account_button_long_03.png') no-repeat; cursor: pointer;"></button>
+    </div>    
 </form>
+</div>
     </div>
     </div>
     </div>
@@ -228,7 +208,6 @@
     <input type="number" id="" name="number" class="form-control" placeholder="Government ID number" required>
     </div>
     </div>
-
     <div class="form-group colum-row row">
     <div class="col-sm-6">
     <input type="email" id="email" name="email" class="form-control" placeholder="Email" required>
@@ -237,7 +216,6 @@
     <input type="text" id="text" name="text" class="form-control" placeholder="Cause" required>
     </div>
     </div>
-
     <div class="form-group row">
     <div class="col-md-12">
     <textarea id="message" name="message" cols="30" rows="5" class="form-control message" placeholder="Message" required></textarea>
@@ -262,8 +240,7 @@
     <div class="col-md-4 xs-padding">
     <div class="widget-content">
     <img src="img/logo-light.png" alt="logo">
-    <p>Initiative by Manav Samajik Seva Sansthan with the 
-        vision to be the fulcrum of change for a better world. </p>
+    <p>Initiative by Manav Samajik Seva Sansthan with the vision to be the fulcrum of change for a better world. </p>
     <ul class="social-icon">
     <li><a href="https://www.facebook.com/Skambha.NGO"><i class="fa fa-facebook"></i></a></li>
     <li><a href="https://twitter.com/InSkambha"><i class="fa fa-twitter"></i></a></li>
@@ -293,7 +270,7 @@
     <div class="container">
     <div class="row">
     <div class="col-md-6 sm-padding">
-    <div class="copyright">&copy; 2020 Skambha Created by ADDVESH VIKRAM</div>
+    <div class="copyright">&copy; 2020 SKAMBHA Powered by PRAAGYA SOLUTIONS</div>
     </div>
     <div class="col-md-6 sm-padding">
     <ul class="footer-social">
@@ -307,7 +284,8 @@
     </footer>
     <a data-scroll href="#header" id="scroll-to-top"><i class="arrow_up"></i></a>
     <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/vendor/jquery-1.12.4.min.js"></script>
-
+    <script id="bolt" src="https://sboxcheckout-static.citruspay.com/bolt/run/bolt.min.js" bolt-
+    color="e34524" bolt-logo="http://boltiswatching.com/wp-content/uploads/2015/09/Bolt-Logo-e14421724859591.png"></script>
     <script src="js/vendor/bootstrap.min.js"></script>
     
     <script src="js/vendor/tether.min.js"></script>
@@ -339,6 +317,77 @@
     <script src="js/contact.js"></script>
     
     <script src="js/main.js"></script>
+    <script type="text/javascript">
+        $('#payment_form').bind('keyup blur', function(){
+            $.ajax({
+                  url: 'https://skambha-ngo.herokuapp.com/',
+                  type: 'post',
+                  data: JSON.stringify({ 
+                    key: $('#key').val(),
+                    salt: $('#salt').val(),
+                    txnid: $('#txnid').val(),
+                    amount: $('#amount').val(),
+                    pinfo: $('#pinfo').val(),
+                    fname: $('#fname').val(),
+                    email: $('#email').val(),
+                    mobile: $('#mobile').val(),
+                    udf5: $('#udf5').val()
+                  }),
+                  contentType: "application/json",
+                  dataType: 'json',
+                  success: function(json) {            
+                    $('#hash').val(json);            
+                  }
+                }); 
+        });
+        //-->
+        </script>
+        <script type="text/javascript">
+        function launchBOLT()
+        {
+            bolt.launch({
+            key: $('#key').val(),
+            txnid: $('#txnid').val(), 
+            hash: $('#hash').val(),
+            amount: $('#amount').val(),
+            firstname: $('#fname').val(),
+            email: $('#email').val(),
+            phone: $('#mobile').val(),
+            productinfo: $('#pinfo').val(),
+            udf5: $('#udf5').val(),
+            surl : $('#surl').val(),
+            furl: $('#surl').val()
+        },{ responseHandler: function(BOLT){
+            console.log( BOLT.response.txnStatus );		
+            if(BOLT.response.txnStatus != 'CANCEL')
+            {
+                //Salt is passd here for demo purpose only. For practical use keep salt at server side only.
+                var fr = '<form action=\"'+$('#surl').val()+'\" method=\"post\">' +
+                '<input type=\"hidden\" name=\"key\" value=\"'+BOLT.response.key+'\" />' +
+                '<input type=\"hidden\" name=\"salt\" value=\"'+$('#salt').val()+'\" />' +
+                '<input type=\"hidden\" name=\"txnid\" value=\"'+BOLT.response.txnid+'\" />' +
+                '<input type=\"hidden\" name=\"amount\" value=\"'+BOLT.response.amount+'\" />' +
+                '<input type=\"hidden\" name=\"productinfo\" value=\"'+BOLT.response.productinfo+'\" />' +
+                '<input type=\"hidden\" name=\"firstname\" value=\"'+BOLT.response.firstname+'\" />' +
+                '<input type=\"hidden\" name=\"email\" value=\"'+BOLT.response.email+'\" />' +
+                '<input type=\"hidden\" name=\"udf5\" value=\"'+BOLT.response.udf5+'\" />' +
+                '<input type=\"hidden\" name=\"mihpayid\" value=\"'+BOLT.response.mihpayid+'\" />' +
+                '<input type=\"hidden\" name=\"status\" value=\"'+BOLT.response.status+'\" />' +
+                '<input type=\"hidden\" name=\"hash\" value=\"'+BOLT.response.hash+'\" />' +
+                '</form>';
+                var form = jQuery(fr);
+                jQuery('body').append(form);								
+                form.submit();
+            }
+        },
+            catchException: function(BOLT){
+                 alert( BOLT.message );
+            }
+        });
+        }
+        //--
+        </script>	
+
     </body>
     
     <!-- Mirrored from html.dynamiclayers.net/dl/charitify/causes.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 28 Nov 2020 13:41:12 GMT -->
